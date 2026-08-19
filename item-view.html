@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Item View{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Item View</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Items</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <a href="{% url 'item-list' %}">
+            <span class="op-7">Item List</span>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Item View</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="itemName">Item Name <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Chair</p>
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="itemCode">Item Code <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">CHA123</p>
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="category">Category <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Furniture</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="units">Units <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">pcs</p>  
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-3">
+                <div class="form-group">
+                  <label for="itemImage">Item Image</label> <br>
+                  <img src="{% static 'images/items_images/chair.jpg' %}" style="height:120px; margin:auto; width:120px; border:#CCCCCC solid 1px; margin-top:10px;" id="userPhoto" alt="Item image"> 
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="itemType">Item Type <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Asset</p> 
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="openingStock">Opening Stock (Initial Quantity) <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">20</p>
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="minStock">Minimum Stock Level (For Alert) <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">5</p>
+                </div>                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Item Issue To Department{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Issue To Department</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Item Consumption</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Issue To Department</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none text-center">
+            <a href="{% url 'item-issue-department-add' %}"><button class="btn btn-primary btn-sm"><strong><i class="ri-add-line"></i> Add New</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="office">Office <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="office" name="office" required>
+                    <option value="">Select</option>
+                    <option value="">Jaipur</option>                                   
+                    <option value="">Kota</option>                                   
+                    <option value="">Udaipur</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="department">Department <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="department" name="department" required>
+                    <option value="">Select</option>
+                    <option value="">All</option>
+                    <option value="">Administration</option>
+                    <option value="">Back Office</option> 
+                    <option value="">Finance</option> 
+                    <option value="">HR</option>                        
+                  </select>    
+                </div>
+              </div>
+              <div class="d-print-none">
+                <p class="text-center p-3">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Search</strong></button>
+                </p>
+              </div>
+            </div>
+            <hr>
+            <div class="table-responsive" id="printableArea">
+              <table id="basic-datatables" class="display table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th colspan="9" class="text-center bg-light"><strong>Item Issue To Department</strong></th>
+                  </tr>
+                  <tr class="text-center">
+                    <th>#</th>
+                    <th>Office</th>
+                    <th>Department</th>
+                    <th>Item</th>
+                    <th>Type</th>
+                    <th>Quantity</th>
+                    <th>Issue Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td class="text-center">Jaipur</td>
+                    <td class="text-center">Administration</td>
+                    <td class="text-center">Chair</td>
+                    <td class="text-center">Asset</td>
+                    <td class="text-center">10</td>
+                    <td class="text-center">30 March 2026</td>
+                    <td class="text-center">Approved</td>
+                    <td class="text-center">
+                      <a href="{% url 'item-issue-department-view' %}"><button class="btn btn-info btn-xs mb-1">View</button></a>
+                      <a href="{% url 'item-issue-department-add' %}"><button class="btn btn-warning btn-xs mb-1">Edit</button></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+</script>
+{% endblock %}

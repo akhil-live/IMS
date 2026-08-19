@@ -1,0 +1,328 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">My Profile</h4>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-12">
+        
+        <div class="card card-stats card-round">
+          
+          <div class="card-body">
+    
+              <div class="row">
+                <div class="col-sm-12 col-md-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title">VIMAL KUMAR SHARMA (SSPL-12345)</h4>
+                    </div>
+                    <div class="card-body">
+                      <ul class="nav nav-pills nav-dark-secondary" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link active" id="pills-basic-tab" data-bs-toggle="pill" href="#pills-basic" role="tab" aria-controls="pills-basic" aria-selected="true">Basic Info</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link" id="pills-professional-tab" data-bs-toggle="pill" href="#pills-professional" role="tab" aria-controls="pills-professional" aria-selected="false" tabindex="-1">Professional</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                          <a class="nav-link" id="pills-documents-tab" data-bs-toggle="pill" href="#pills-documents" role="tab" aria-controls="pills-documents" aria-selected="false" tabindex="-1">Documents</a>
+                        </li>
+                      </ul>
+                      <div class="tab-content mt-2 mb-3" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-basic" role="tabpanel" aria-labelledby="pills-basic-tab">
+                          <div class="row p-2" style="background: #f8f8ff;">
+                            <div class="col-lg-3 col-md-3">
+                              <div class="form-group">
+                                <img src="{% static 'images/profile/user.png' %}" style="height:130px; margin:auto; width:130px; border:#CCCCCC solid 1px; margin-top:10px;" id="userPhoto" alt="Profile image"> 
+                              </div>
+                            </div>
+                            <div class="col-lg-9 col-md-9 col-sm-6" style="padding-left:0px; padding-right:0px;">
+                              <div class="form-group mt-1">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="employeeName"><strong>VIMAL KUMAR SHARMA (SSPL-12345)</strong></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="gender">Gender: <strong>Male</strong></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="gender">Blood Group: <strong>O+</strong></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="dob">Date Of Birth: <strong>March 01, 1990</strong></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="doj">Date Of Joining: <strong>June 01, 2024</strong></label>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <label for="doj">Contact Number: <strong>9876543210</strong></label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="fatherName">Father's Name</label>
+                                <p class="fw-bold">HANSRAJ SHARMA</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="motherName">Mother's Name</label>
+                                <p class="fw-bold">HANSA SHARMA</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="height">Height In CM.</label>
+                                <p class="fw-bold">0.00</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="weight">Weight In KG</label>
+                                <p class="fw-bold">0.00</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="maritalStatus">Marital Status</label>
+                                <p class="fw-bold">Unmarried</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="emailId">Email ID</label>
+                                <p class="fw-bold">vimalks@gmail.com</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="uanNumber">UAN Number</label>
+                                <p class="fw-bold">123123123</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="panNumber">Pan Number</label>
+                                <p class="fw-bold">123XYZ123</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="uidNumber">UID Number</label>
+                                <p class="fw-bold">123123456789</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="esicNumber">ESIC Number</label>
+                                <p class="fw-bold">11123123</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="pfNumber">PF Number</label>
+                                <p class="fw-bold">JHR1231123</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="maritalStatus">Qualification Of Employee</label>
+                                <p class="fw-bold">GRADUATE</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="contactNumber2">Another Contact Number</label>
+                                <p class="fw-bold">9876543211</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                              <div class="form-group">
+                                <label for="presentAddress">Present Address</label>
+                                <p class="fw-bold">89, PRADHAN MARG, CALGIRI MARG, BLOCK-B, SECTOR 4, MALVIYA NAGAR</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="presentCity">Present City</label>
+                                <p class="fw-bold">JAIPUR</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="presentState">Present State</label>
+                                <p class="fw-bold">RAJASTHAN</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="presentPincode">Present Pincode</label>
+                                <p class="fw-bold">302017</p>
+                              </div>
+                            </div>
+
+                            <div class="row col-lg-12 col-12">
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="permanentAddress">Permanent Address</label>
+                                <p class="fw-bold">89, PRADHAN MARG, CALGIRI MARG, BLOCK-B, SECTOR 4, MALVIYA NAGAR</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="permanentCity">Permanent City</label>
+                                <p class="fw-bold">JAIPUR</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="permanentState">Permanent State</label>
+                                <p class="fw-bold">RAJASTHAN</p>
+                              </div>
+                            </div>
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                              <div class="form-group">
+                                <label for="permanentPincode">Permanent Pincode</label>
+                                <p class="fw-bold">302017</p>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-professional" role="tabpanel" aria-labelledby="pills-professional-tab">
+                          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                            <div class="table-responsive">
+                              <table class="display table table-bordered my-3 table-head-bg-secondary" width="100%">
+                                <thead>
+                                  <tr class="text-center">
+                                    <th>Branch Department Designation</th>
+                                    <th>Grade</th>
+                                    <th>Employement Type</th>
+                                    <th>Reporting Officer</th>
+                                    <th>Effective Date</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr class="text-center">
+                                    <td>Rajasthan | Rajsthan ULB | PROJECT MANAGER</td>
+                                    <td>E2-Jaipur</td>
+                                    <td>PERMANENT</td>
+                                    <td>None | None</td>
+                                    <td>01-05-2025</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="tab-pane fade" id="pills-documents" role="tabpanel" aria-labelledby="pills-documents-tab">
+                          <div class="row">
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-12">
+                              <div class="table-responsive">
+                                <table class="display table table-bordered my-3 table-head-bg-secondary" width="100%">
+                                  <thead>
+                                    <tr class="text-center">
+                                      <th>Document Name</th>
+                                      <th>Upload Image Of Document</th>
+                                      <th>Document Status</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr class="text-center">
+                                      <td>AADHAR CARD</td>
+                                      <td><button class="btn btn-success btn-xs my-1"><i class="ri-file-image-line" style="font-size: 16px;"></i></button></td>
+                                      <td>Approved</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+                              <div class="row">
+                                <div class="col-lg-2 col-md-2 col-sm-12 mx-3">
+                                  <button type="submit" class="btn btn-primary btn-xs my-2" name="submit" data-bs-toggle="modal" data-bs-target="#addNewDoc"><strong>Add</strong></button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+<div class="modal fade" id="addNewDoc" tabindex="-1" aria-labelledby="addNewDocLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary">
+        <h4 class="modal-title" id="addNewDocLabel" style="font-size: 12px;">Document Upload <strong class="ms-2">VIMAL KUMAR SHARMA (SSPL-12345)</strong></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-6">
+            <div class="form-group">
+              <label for="documentName">Document Name</label>
+              <select class="form-select" id="documentName" name="documentName" required>
+                <option value="">Select Document</option>
+                <option value="">VOTER CARD</option>
+                <option value="">AADHAR CARD</option>
+                <option value="">ACCOUNT DOC</option>
+                <option value="">JOINING LETTER</option>
+                <option value="">TERMINATION LETTER</option>
+                <option value="">PERMOTION LETTER</option>
+                <option value="">REJOINING LETTER</option>
+                <option value="">POST GRADUATE</option>
+                <option value="">PHD</option>
+                <option value="">ASSOCIATE DEGREE</option>
+                <option value="">BACHELOR'S DEGREE</option>
+                <option value="">GRADUATE</option>
+                <option value="">MATRIC DOC</option>
+                <option value="">INTERMEDIATE</option>
+                <option value="">CERTIFICATE</option>
+                <option value="">PAN CARD</option>
+              </select>    
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+              <label for="docImage">Upload Image Of Document</label>
+              <input type="file" id="docImage" name="docImage" class="form-control" required>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="form-group">
+              <label for="remarks">Remarks</label>
+              <input type="text" id="remarks" name="remarks" class="form-control" placeholder="Enter Remarks">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info btn-sm">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

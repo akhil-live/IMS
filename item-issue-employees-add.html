@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add Item Issue To Employees{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Add Item Issue To Employees</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Item Consumption</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Add Item Issue To Employees</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="office">Office <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="office" name="office" required>
+                    <option value="">Select</option>
+                    <option value="">Jaipur</option>                                   
+                    <option value="">Kota</option>                                   
+                    <option value="">Udaipur</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="employee">Employee <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="employee" name="employee" required>
+                    <option value="">Select</option>
+                    <option value="">VIMAL KUMAR SHARMA (SSPL-12345)</option>                                   
+                    <option value="">RAHUL VERMA (SSPL-34512)</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="category">Item Type <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="category" name="category" required="">
+                    <option value="">Select</option>
+                    <option value="">Asset</option>                                   
+                    <option value="">Consumable</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="item">Item <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="item" name="item" required>
+                    <option value="">Select</option>
+                    <option value="">Chair (CHA123)</option>                                   
+                    <option value="">Table (TAA120)</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="qty">Quantity <i class="ri-asterisk"></i></label>
+                  <input type="number" class="form-control" id="qty" name="qty" value="" placeholder="Enter Item Quantity" required>
+                </div>           
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="issueDate">Issue Date <i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="issueDate" name="issueDate" value="" required>
+                </div>           
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="returnable">Returnable Item <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="returnable" name="returnable" required>
+                    <option value="">Select</option>
+                    <option value="">YES</option>                                   
+                    <option value="">NO</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="remark">Remark</label>
+                  <textarea id="remark" name="remark" class="form-control" rows="3" cols="20" placeholder="Enter text here.."></textarea>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="issueStatus">Issue Status <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="issueStatus" name="issueStatus" required>
+                    <option value="">Select</option>
+                    <option value="">Approved</option>                                   
+                    <option value="">Returned</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="returnDate">Returned Date (when return)</label>
+                  <input type="date" class="form-control" id="returnDate" name="returnDate" value="">
+                </div>           
+              </div>
+              <div class="d-print-none">
+                <p class="text-center p-3">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

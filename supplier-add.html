@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add New Supplier{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Add New Supplier</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Vendor</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Add New Supplier</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="suppplierName">Supplier Name <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="suppplierName" name="suppplierName" value="" placeholder="Enter Supplier Name" required="">
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="gstno">GST No. (if Applicable)</label>
+                  <input type="text" class="form-control" id="gstno" name="gstno" value="" placeholder="Enter GST Number" required>
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="contact">Contact No. <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="contact" name="contact" value="" placeholder="10 digits only" maxlength="10" required>
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="address">Address <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="address" name="address" value="" placeholder="Enter Address" required>
+                </div>             
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="city">City <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="city" name="city" value="" placeholder="Enter City" required>
+                </div>             
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="state">State <i class="ri-asterisk"></i></label>
+                  <input type="text" class="form-control" id="state" name="state" value="" placeholder="Enter State" required>
+                </div>             
+              </div>
+              <div class="d-print-none">
+                <p class="text-start p-3">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

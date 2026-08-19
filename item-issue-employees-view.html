@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Item Issue To Employees{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Item Issue To Employees</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Item Consumption</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Item Issue To Employees</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="office">Office <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Jaipur</p>  
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="employee">Employee <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">VIMAL KUMAR SHARMA (SSPL-12345)</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="category">Item Type <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Asset</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="item">Item <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Laptop (LEN001)</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="qty">Quantity <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">1</p>
+                </div>           
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="issueDate">Issue Date <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">30 March 2026</p>
+                </div>           
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="returnable">Returnable Item <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">YES</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="remark">Remark</label>
+                  <p class="fw-bold">Issue Lanovo Laptop</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="issueStatus">Issue Status <i class="ri-asterisk"></i></label>
+                  <p class="fw-bold">Approved</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="returnDate">Returned Date (when return)</label>
+                  <p class="fw-bold"> </p>
+                </div>           
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}

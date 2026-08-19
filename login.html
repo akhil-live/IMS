@@ -1,0 +1,59 @@
+{% extends 'loginbase.html' %}
+{% load static %}
+
+{% block title %}IMS Login{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="container auth-box">
+        <div class="row border rounded-3 bg-weight shadow box-area">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 d-flex justify-content-center align-items-center flex-column left-box">
+                <div class="featured-outline">
+                    <img src="{% static 'images/featured_image/IMS_image.png' %}" class="img-fluid" alt="HRM">
+                </div>
+                <div class="institution-name mb-3 text-center">
+                    <h2><strong>Inventory Management System</strong></h2>
+                </div>
+                <small class="about-text text-wrap ps-4">IMS is used to track, organize, and reorder internal workplace supplies.</small>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 right-box">
+                <div class="row align-items-center">
+                    <div class="header-text mb-3">
+                        <div class="featured-image mb-2 text-center">
+                            <img src="{% static 'images/logo/ims_logo.png' %}" class="img-fluid" alt="Company Logo">
+                        </div>
+                        <h3 class="text-center"><strong>Sign In</strong></h3>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control form-control-lg bg-light fs-6" name="username" id="username" placeholder="Username" required>
+                        <span class="input-group-text">
+                            <i class="ri-shield-user-line"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-1">
+                        <input type="password" class="form-control form-control-lg bg-light fs-6" name="password" id="password" placeholder="Password" required>
+                        <span class="input-group-text">
+                            <i class="ri-lock-password-line"></i>
+                        </span>
+                    </div>
+                    <div class="input-group mb-4 d-flex justify-content-between">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="formCheck">
+                            <label for="formCheck" class="form-check-label text-secondary"><small>Remeber Me</small></label>
+                        </div>
+                        <div class="forgot">
+                            <small><a href="{% url 'forgot-password' %}">Forgot Password?</a></small>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-md primary-button w-100 fs-6">Login</button>
+                    </div>
+                    <div class="auth-signin-note mb-1">
+                        <small><strong>Note :</strong> For any issue related query please feel free to write us on <strong>eoffice.support@ims.com</strong></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,490 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        Inventory Management System
+        {% endblock %}
+    </title>
+    <link rel="shortcut icon" href="{% static 'images/logo/ims_favicon.png' %}" type="image/png"/>
+    <link href="{% static 'fonts/noto-sans-v42-latin-regular.woff2' %}" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{% static 'remixicon/remixicon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}">
+    <link rel="stylesheet" href="{% static 'css/adminresponsive.css' %}">
+
+    <style>
+        body { font-family: 'Noto sans', sans-serif; }
+        .nav-item.show > a {
+            background-color: #6861CE;
+            color: #fff;
+        }
+        .nav-item > a.active {
+            font-weight: 600;
+        }
+        @font-face {
+            font-family: "remixicon";
+            src: url("{% static 'remixicon/remixicon.woff2' %}") format("woff2");
+            font-display: swap;
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 300;
+            src: url("{% static 'fonts/noto-sans-v42-latin-300.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: url("{% static 'fonts/noto-sans-v42-latin-regular.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: italic;
+            font-weight: 400;
+            src: url("{% static 'fonts/noto-sans-v42-latin-italic.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 500;
+            src: url("{% static 'fonts/noto-sans-v42-latin-500.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 600;
+            src: url("{% static 'fonts/noto-sans-v42-latin-600.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 700;
+            src: url("{% static 'fonts/noto-sans-v42-latin-700.woff2' %}") format('woff2'); 
+        }
+        @font-face {
+            font-display: swap; 
+            font-family: 'Noto Sans';
+            font-style: normal;
+            font-weight: 800;
+            src: url("{% static 'fonts/noto-sans-v42-latin-800.woff2' %}") format('woff2'); 
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+      <!-- Sidebar -->
+      <div class="sidebar" data-background-color="white">
+        <div class="sidebar-logo">
+          <!-- Logo Header -->
+          <div class="logo-header" data-background-color="inky">
+            <a href="{% url 'dashboard' %}" class="logo">
+              <img src="{% static 'images/logo/ims_logo.png' %}" alt="navbar brand" class="navbar-brand" height="44"/>
+              <h4 style="color: white; padding: 6px 0 0 6px;"><strong>Inventory System</strong></h4>
+            </a>
+            <div class="nav-toggle">
+              <button class="btn btn-toggle toggle-sidebar">
+                <i class="gg-menu-right"></i>
+              </button>
+              <button class="btn btn-toggle sidenav-toggler">
+                <i class="gg-menu-left"></i>
+              </button>
+            </div>
+            <button class="topbar-toggler more">
+              <i class="gg-more-vertical-alt"></i>
+            </button>
+          </div>
+          <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+          <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+              <li class="nav-item">
+                <a href="{% url 'dashboard' %}">
+                  <i class="ri-home-3-line"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#offices">
+                  <i class="ri-government-line"></i>
+                  <p>Offices</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="offices">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'office-list' %}">
+                        <span class="sub-item">Offices List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'office-add' %}">
+                        <span class="sub-item">Add New Office</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#categories">
+                  <i class="ri-kanban-view-2"></i>
+                  <p>Categories</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="categories">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'category-list' %}">
+                        <span class="sub-item">Category List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'category-add' %}">
+                        <span class="sub-item">Add New Category</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#items">
+                  <i class="ri-box-1-line"></i>
+                  <p>Items</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="items">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'item-list' %}">
+                        <span class="sub-item">Items List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'item-add' %}">
+                        <span class="sub-item">Add New Items</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#purchase">
+                  <i class="ri-shopping-cart-line"></i>
+                  <p>Purchase Entry</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="purchase">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'purchase-list' %}">
+                        <span class="sub-item">Purchase List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'purchase-add' %}">
+                        <span class="sub-item">Add New Purchase Entry</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#itemConsumption">
+                  <i class="ri-hourglass-fill"></i>
+                  <p>Item Consumption</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="itemConsumption">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'item-issue-employees-list' %}">
+                        <span class="sub-item">Issue To Employees</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'item-issue-department-list' %}">
+                        <span class="sub-item">Issue To Department</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#defunctitems">
+                  <i class="ri-delete-bin-2-line"></i>
+                  <p>Damaged & Lost Items</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="defunctitems">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'item-adjustment-list' %}">
+                        <span class="sub-item">Adjustment List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'item-adjustment-add' %}">
+                        <span class="sub-item">Add Adjustment</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>       
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#transfers">
+                  <i class="ri-share-box-line"></i>
+                  <p>Transfer Items</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="transfers">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'item-transfer-list' %}">
+                        <span class="sub-item">Transfers List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'item-transfer-add' %}">
+                        <span class="sub-item">Add New Transfer</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#returned">
+                  <i class="ri-arrow-left-down-box-line"></i>
+                  <p>Returned Items</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="returned">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'item-returned-list' %}">
+                        <span class="sub-item">Returned List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'item-returned-add' %}">
+                        <span class="sub-item">Add Returned Item</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#users">
+                  <i class="ri-user-line"></i>
+                  <p>Users</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="users">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'my-profile' %}">
+                        <span class="sub-item">Profile</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#vendors">
+                  <i class="ri-truck-line"></i>
+                  <p>Vendors</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="vendors">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'supplier-list' %}">
+                        <span class="sub-item">Suppliers List</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'supplier-add' %}">
+                        <span class="sub-item">Add New Supplier</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#reports">
+                  <i class="ri-bar-chart-box-line"></i>
+                  <p>Reports</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="reports">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{% url 'inventory-stock-report' %}">
+                        <span class="sub-item">Inventory Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'transfer-report' %}">
+                        <span class="sub-item">Transfer Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'purchase-report' %}">
+                        <span class="sub-item">Purchase Report</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{% url 'office-wise-report' %}">
+                        <span class="sub-item">Office Wise Items</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <!-- End Sidebar -->
+
+      <div class="main-panel">
+        <div class="main-header">
+          <div class="main-header-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="inky">
+              <a href="{% url 'dashboard' %}" class="logo">
+                <img src="{% static 'images/logo/ims_logo.png' %}" alt="navbar brand" class="navbar-brand" height="20"/>
+                <h6 style="color: white; padding: 6px 0 0 8px;"><strong>Inventory System</strong></h6>
+              </a>
+              <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                  <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                  <i class="gg-menu-left"></i>
+                </button>
+              </div>
+              <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+              </button>
+            </div>
+            <!-- End Logo Header -->
+          </div>
+          <!-- Navbar Header -->
+          <nav
+            class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom"
+          >
+            <div class="container-fluid">
+              <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                <li class="nav-item topbar-icon dropdown hidden-caret" title="Applications">
+                  <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="ri-gallery-view-2" style="font-size: 20px;"></i>
+                  </a>
+                  <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header">
+                      <span class="title mb-1">Applications</span>
+                    </div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                      <div class="quick-actions-items">
+                        <div class="row m-0">
+                          <a class="col-6 col-md-4 col-sm-6 col-12 p-0" href="#">
+                            <div class="quick-actions-item">
+                              <div class="avatar-item bg-secondary rounded-circle">
+                                <i class="ri-user-settings-line"></i>
+                              </div>
+                              <span class="text">HRMS Admin</span>
+                            </div>
+                          </a>
+                          <a class="col-6 col-md-4 col-sm-6 col-12 p-0" href="#">
+                            <div class="quick-actions-item">
+                              <div class="avatar-item bg-info rounded-circle">
+                                <i class="ri-user-community-line"></i>
+                              </div>
+                              <span class="text">HRMS User</span>
+                            </div>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item topbar-user dropdown hidden-caret" title="User">
+                  <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false" >
+                    <div class="avatar-sm">
+                      <img src="{% static 'images/profile/user.png' %}" alt="profile" class="avatar-img rounded-circle" />
+                    </div>
+                    <span class="profile-username">
+                      <span class="op-7"></span>
+                      <span class="fw-bold">Admin Name</span>
+                    </span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                      <li>
+                        <div class="user-box">
+                          <div class="avatar-lg">
+                            <img src="{% static 'images/profile/user.png' %}" alt="image profile" class="avatar-img rounded" />
+                          </div>
+                          <div class="u-text">
+                            <h4>Admin Name</h4>
+                            <p class="text-muted">Employee designation</p>
+                            <p class="text-muted">Employee id</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{% url 'my-profile' %}">My Profile</a>
+                        <a class="dropdown-item" href="{% url 'change-password' %}">Change Password</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Logout</a>
+                      </li>
+                    </div>
+                  </ul>
+                </li>
+                <li class="nav-item topbar-icon dropdown hidden-caret" title="Logout">
+                  <a class="nav-link" href="#">
+                    <i class="ri-logout-box-r-line" style="font-size: 20px;"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <!-- End Navbar -->
+        </div>
+
+        {% block content %}
+        {% endblock %}
+
+        <!-- footer start -->
+        <footer class="footer">
+          <div class="container-fluid d-flex justify-content-between">
+            <div class="copyright">
+                <small class="fw-normal op-7">© Copyright</small>
+            </div>
+          </div>
+        </footer>
+        <!-- footer end -->
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.scrollbar/0.2.11/jquery.scrollbar.min.js" integrity="sha512-5AcaBUUUU/lxSEeEcruOIghqABnXF8TWqdIDXBZ2SNEtrTGvD408W/ShtKZf0JNjQUfOiRBJP+yHk6Ab2eFw3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'js/datatables/datatables.min.js' %}"></script>
+    <script src="{% static 'js/sweetalert/sweetalert.min.js' %}"></script>
+    <script src="{% static 'js/admin.js' %}"></script>
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

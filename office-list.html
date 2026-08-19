@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Office List{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Office List</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Offices</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Office List</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header d-print-none text-center">
+            <a href="{% url 'office-add' %}"><button class="btn btn-primary btn-sm"><strong><i class="ri-add-line"></i> Add New</strong></button></a>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive" id="printableArea">
+              <table id="basic-datatables" class="display table table-hover table-bordered">
+                <thead>
+                  <tr>
+                    <th colspan="9" class="text-center bg-light"><strong>Office List</strong></th>
+                  </tr>
+                  <tr class="text-center">
+                    <th>#</th>
+                    <th>Office Name</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Added On</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>1</td>
+                    <td class="text-center">Nagar Nigam Kota</td>
+                    <td class="text-center">Kota</td>
+                    <td class="text-center">Rajasthan</td>
+                    <td class="text-center">30 March 20226</td>
+                    <td>
+                      <select class="form-select-sm" id="supplierStatus" name="supplierStatus" required="">
+                        <option value="" selected="">Active</option>
+                        <option value="">Inactive</option>
+                      </select>                       
+                    </td>
+                    <td class="text-center">
+                      <a href="{% url 'office-view' %}"><button class="btn btn-info btn-xs mb-1">View</button></a>
+                      <a href="{% url 'office-add' %}"><button class="btn btn-success btn-xs mb-1">Edit</button></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+  $(document).ready(function () {
+        $("#basic-datatables").DataTable({});
+
+        $("#multi-filter-select").DataTable({
+          pageLength: 10,
+          initComplete: function () {
+            this.api()
+              .columns()
+              .every(function () {
+                var column = this;
+                var select = $(
+                  '<select class="form-select"><option value=""></option></select>'
+                )
+                  .appendTo($(column.footer()).empty())
+                  .on("change", function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+
+                    column
+                      .search(val ? "^" + val + "$" : "", true, false)
+                      .draw();
+                  });
+
+                column
+                  .data()
+                  .unique()
+                  .sort()
+                  .each(function (d, j) {
+                    select.append(
+                      '<option value="' + d + '">' + d + "</option>"
+                    );
+                  });
+              });
+          },
+        });
+
+        // Add Row
+        $("#add-row").DataTable({
+          pageLength: 10,
+        });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Add New Purchase Entry{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header d-print-none">
+      <h4 class="fw-bold mb-3">Add New Purchase Entry</h4>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'dashboard' %}">
+            <i class="ri-home-3-line"></i>
+          </a>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Purchase Entry</span>
+        </li>
+        <li class="separator">
+          <i class="ri-arrow-right-s-line"></i>
+        </li>
+        <li class="nav-item">
+          <span class="op-7">Add New Purchase Entry</span>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-1">
+              Purchase Information
+            </h5>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="purchaseNumber">Purchase Order No. <i class="ri-asterisk"></i></label>
+                  <input type="number" class="form-control" id="purchaseNumber" name="purchaseNumber" placeholder="Enter Purchase Order No." value="">
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="supplier">Supplier <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="supplier" name="supplier" required>
+                    <option value="">Select</option>
+                    <option value="">Furniture Traders Pvt Ltd</option> 
+                    <option value="">Stationary Enterprises</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="office">Office <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="office" name="office" required>
+                    <option value="">Select</option>
+                    <option value="">Jaipur</option>                                   
+                    <option value="">Kota</option>                                   
+                    <option value="">Udaipur</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="purchaseDate">Purchase Date <i class="ri-asterisk"></i></label>
+                  <input type="date" class="form-control" id="purchaseDate" name="purchaseDate" value="" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title mb-1">
+              Item Information
+            </h5>
+            <div class="text-end">
+              <button type="button" class="btn btn-primary btn-sm" id="addItemBtn"><i class="ri-add-line me-1"></i>Add Item</button>
+            </div>
+            <div class="row">
+              <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th width="45">#</th>
+                            <th style="min-width: 240px;">
+                                Item<i class="ri-asterisk"></i>
+                            </th>
+                            <th style="min-width: 100px;">
+                                Quantity<i class="ri-asterisk"></i>
+                            </th>
+                            <th style="min-width: 100px;">
+                                Price/Unit<i class="ri-asterisk"></i>
+                            </th>
+                            <th style="min-width: 6cap;" class="text-end">
+                                Amount
+                            </th>
+                            <th width="55"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="item-number">
+                                1
+                            </td>
+                            <td>
+                                <select class="form-select item-select" name="item[]" required>
+                                  <option value="">Select Item</option>
+                                  <option value="CHA123">
+                                    Chair (CHA123)
+                                  </option>
+                                  <option value="TAA120">
+                                    Table (TAA120)
+                                  </option>
+                                  <option value="DESK101">
+                                    Office Desk (DESK101)
+                                  </option>
+                                  <option value="CHR200">
+                                    Office Chair (CHR200)
+                                  </option>
+                                  <option value="CAB300">
+                                    Office Cabinet (CAB300)
+                                  </option>
+                                </select>
+                            </td>
+                            <td>
+                              <input type="number" class="form-control item-qty" name="qty[]" value="1" min="1" step="1" placeholder="Qty" required>
+                            </td>
+                            <td>
+                              <div class="input-group">
+                                <span class="input-group-text">
+                                  ₹
+                                </span>
+                                <input type="number" class="form-control" id="pricePerUnit[]" name="pricePerUnit" placeholder="0.00" min="0" step="0.01" value="" required>
+                              </div>
+                            </td>            
+                            <td class="text-end">
+                                <span class="item-amount">
+                                    ₹ <strong>0.00</strong>
+                                </span>
+                            </td>
+                            <td class="text-center">
+                              <button type="button" class="btn btn-outline-danger btn-sm remove-item" title="Remove Item">
+                              <i class="ri-delete-bin-line"></i>
+                              </button>
+                            </td>
+                        </tr>
+                    </tbody>            
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <div>
+              <h5 class="card-title mb-1">
+                Documents & Remarks
+              </h5>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="purchaseStatus">Puchase Status <i class="ri-asterisk"></i></label>
+                  <select class="form-select" id="purchaseStatus" name="purchaseStatus" required>
+                    <option value="">Select</option>
+                    <option value="">Pending</option>                                   
+                    <option value="">Approved</option>                                   
+                    <option value="">Received</option>                                   
+                    <option value="">Cancelled</option>                                   
+                  </select>    
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="poDoc">Upload P.O. / Document (Optional)</label>
+                  <input type="file" class="form-control" id="poDoc" name="poDoc">
+                </div>                 
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="form-group">
+                  <label for="remark">Remark (optional)</label>
+                  <textarea id="remark" name="remark" class="form-control" rows="3" cols="20" placeholder="Enter text here.."></textarea>
+                </div>
+              </div>
+              <div class="d-print-none">
+                <p class="text-center p-3">
+                  <button type="submit" class="btn btn-success btn-sm" name="submit"><strong>Submit</strong></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+
+{% endblock %}
